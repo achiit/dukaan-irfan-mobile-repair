@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Irfan Mobile – Mobile display replacement, free gifts, cash for broken phones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7ff; --ink:#0c1030; --muted:#4a4f78; --blue:#1738ff; --yellow:#ffd60a; --red:#ff3d2e; --card:#ffffff; --line:#d9dcf5;
+  --on-blue:#ffffff;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#090b22;--ink:#f2f3ff;--muted:#a9aed9;--card:#12163a;--line:#272d63;--blue:#3d5bff;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#090b22;--ink:#f2f3ff;--muted:#a9aed9;--card:#12163a;--line:#272d63;--blue:#3d5bff;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3{font-family:"Archivo Black","Arial Black",Impact,sans-serif;font-weight:400;line-height:1.02;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+.banner{background:var(--red);color:#fff;font-weight:700;text-align:center;padding:10px 16px;font-size:15px}
+.banner b{background:var(--yellow);color:#0c1030;padding:2px 8px;border-radius:4px;margin-right:6px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0}
+.logo{font-family:"Archivo Black",Impact,sans-serif;font-size:21px;text-decoration:none;letter-spacing:.2px}
+.logo span{color:var(--blue)}
+.btn{display:inline-block;background:var(--yellow);color:#0c1030;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:999px;border:2px solid #0c1030;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+
+.hero{background:var(--blue);color:#fff;border-radius:0 0 36px 36px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;padding-top:44px;padding-bottom:56px}
+.hero h1{font-size:clamp(40px,7vw,78px)}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{max-width:46ch;font-size:19px;margin:18px 0 26px;color:#e6e9ff}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn.ghost{color:#fff;border-color:#fff}
+
+.phone{justify-self:center;width:min(250px,64vw);aspect-ratio:9/18.5;border-radius:36px;background:#05061a;padding:11px;box-shadow:0 0 0 3px #fff2,0 28px 60px #0006;transform:rotate(5deg);position:relative}
+.screen{width:100%;height:100%;border-radius:27px;background:linear-gradient(160deg,#00e5ff 0%,#7a5cff 45%,#ff3d9a 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.screen::before{content:"";position:absolute;top:10px;left:50%;width:58px;height:15px;margin-left:-29px;border-radius:9px;background:#05061a}
+.screen::after{content:"";position:absolute;inset:-30% auto auto -40%;width:90%;height:160%;background:linear-gradient(100deg,#fff5,#fff0 60%);transform:rotate(14deg)}
+.tag{position:relative;z-index:1;background:var(--yellow);color:#0c1030;font-weight:700;border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.25}
+.tag strong{display:block;font-family:"Archivo Black",Impact,sans-serif;font-weight:400;font-size:19px}
+
+section{padding:64px 0}
+section h2{font-size:clamp(30px,4.6vw,48px);margin-bottom:12px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 30px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:24px}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{margin:0;color:var(--muted)}
+.card.hot{background:var(--yellow);border-color:#0c1030;color:#0c1030}
+.card.hot p{color:#2a2d55}
+.card.cash{background:var(--red);border-color:var(--red);color:#fff}
+.card.cash p{color:#ffe7e3}
+
+.sell{background:var(--ink);color:var(--bg);border-radius:32px;padding:44px 28px}
+.sell .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.sell h2{color:var(--yellow)}
+.sell p{margin:0;max-width:52ch;opacity:.9}
+
+.contact{text-align:center}
+.contact .num{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(30px,6vw,56px);display:block;margin:10px 0 22px;color:var(--blue)}
+.contact .note{color:var(--muted);font-size:15px;margin-top:18px}
+
+footer{border-top:2px solid var(--line);padding:24px 0 36px;color:var(--muted);font-size:14px;text-align:center}
+
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#16a34a;color:#fff;font-weight:700;text-decoration:none;padding:13px 18px;border-radius:999px;box-shadow:0 8px 24px #0004;z-index:5}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:28px}
+  .phone{order:-1;width:170px;margin-bottom:6px}
+  .sell .wrap{grid-template-columns:1fr}
+  section{padding:48px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="banner"><b>FREE GIFT</b>with selected repairs and purchases. Ask in store or on WhatsApp.</div>
+
+<div class="hero">
+  <div class="wrap" style="padding-bottom:0;padding-top:0">
+    <header class="top" style="grid-column:1/-1">
+      <a class="logo" href="#">IRFAN <span>MOBILE</span></a>
+      <a class="btn" href="https://wa.me/917439538462">WhatsApp us</a>
+    </header>
+  </div>
+  <div class="wrap">
+    <div>
+      <h1>Cracked screen? Get a new display <em>fast.</em></h1>
+      <p>Mobile display replacement for many phone models, a free gift on selected repairs, and instant cash for your broken phone.</p>
+      <div class="btns">
+        <a class="btn" href="https://wa.me/917439538462?text=Hi%2C%20I%20need%20a%20display%20replacement.">Ask about my phone</a>
+        <a class="btn ghost" href="#sell">Sell a broken phone</a>
+      </div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen"><div class="tag"><strong>New display</strong>Bright, sharp, fitted in store</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="lead">Message us your phone model and we’ll tell you what we can do.</p>
+    <div class="grid">
+      <div class="card"><h3>Display replacement</h3><p>New screens for multiple phone models. Send your model on WhatsApp to check.</p></div>
+      <div class="card hot"><h3>Free gifts</h3><p>Get a free gift with selected repairs and purchases. Ask which ones qualify today.</p></div>
+      <div class="card cash"><h3>Cash for broken phones</h3><p>We buy broken phones and pay instant cash.</p></div>
+      <div class="card"><h3>Phones and combos</h3><p>Affordable keypad phones and combo deals. Ask what’s available now.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sell" style="padding-top:0">
+  <div class="wrap">
+    <div class="sell">
+      <div class="wrap" style="padding:0">
+        <div>
+          <h2>Broken phone? Turn it into cash.</h2>
+          <p style="margin-top:12px">Smashed screen, dead phone or just old. Send us the model and a photo, and we’ll tell you what we can pay.</p>
+        </div>
+        <a class="btn" href="https://wa.me/917439538462?text=Hi%2C%20I%20want%20to%20sell%20my%20broken%20phone.">Send photo on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Talk to us</h2>
+    <p class="lead" style="margin-inline:auto">Questions about repairs, prices or current offers? WhatsApp is the quickest way.</p>
+    <a class="num" href="https://wa.me/917439538462">7439538462</a>
+    <a class="btn blue" href="https://wa.me/917439538462">Chat on WhatsApp</a>
+    <!-- TODO: confirm and add shop address, business hours, years in business, Instagram handle, payment notice -->
+    <p class="note">Message us for the shop address and opening hours.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">© Irfan Mobile. Offers may change, so please confirm before visiting.</div></footer>
+
+<a class="wa" href="https://wa.me/917439538462" aria-label="Chat on WhatsApp">WhatsApp</a>
+</body>
+</html>
